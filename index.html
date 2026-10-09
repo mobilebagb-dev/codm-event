@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODM Gems Event Demo</title>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050b13;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #101a28;
+  padding: 18px 10px;
+  text-align: center;
+  border-bottom: 3px solid #ffe000;
+}
+
+header h2 {
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+header p {
+  color: #ffe000;
+  font-size: 12px;
+}
+
+.hero {
+  text-align: center;
+  padding: 35px 15px;
+  background: linear-gradient(135deg, #102744, #05070b);
+}
+
+.hero h1 {
+  color: #ffe000;
+  font-size: 38px;
+  margin: 10px 0;
+}
+
+.hero p {
+  color: #d5dfef;
+}
+
+.gem {
+  font-size: 65px;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+
+.card {
+  margin: 18px 12px;
+  padding: 20px;
+  background: #101a28;
+  border: 1px solid #ffe000;
+  border-radius: 12px;
+}
+
+.card h2 {
+  color: #ffe000;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 12px 0;
+  border: 1px solid #607087;
+  border-radius: 8px;
+  background: #050b13;
+  color: white;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: #ffe000;
+  color: #111;
+  font-size: 17px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(.98);
+}
+
+#result {
+  margin-top: 15px;
+  line-height: 1.6;
+  color: #ffe000;
+}
+
+.rewards {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  gap: 8px;
+}
+
+.reward {
+  padding: 12px 5px;
+  background: #07111d;
+  border-radius: 8px;
+  flex: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 10px;
+  color: #9aa8b8;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>CALL OF DUTY MOBILE</h2>
+  <p>FAN-MADE EVENT DEMO</p>
+</header>
+
+<section class="hero">
+  <div class="gem">💎</div>
+  <h1>GEMS EVENT</h1>
+  <p>Explore our fan-made gaming event demo!</p>
+</section>
+
+<section class="card">
+  <h2>🎮 PLAYER DEMO</h2>
+  <p>Enter a sample Player ID to try the demo.</p>
+
+  <input
+    id="playerId"
+    type="text"
+    maxlength="30"
+    placeholder="Enter sample Player ID"
+    autocomplete="off"
+  >
+
+  <button onclick="verifyPlayer()">TRY DEMO</button>
+
+  <div id="result" aria-live="polite"></div>
+</section>
+
+<section class="card">
+  <h2>💎 DEMO REWARDS</h2>
+
+  <div class="rewards">
+    <div class="reward">
+      <div class="gem">💎</div>
+      <b>1000 Gems</b>
+    </div>
+
+    <div class="reward">
+      <div class="gem">🎁</div>
+      <b>Crate</b>
+    </div>
+  </div>
+
+  <p>This demo does not grant real game items.</p>
+</section>
+
+<footer>
+  Fan-made demonstration only.<br>
+  Not affiliated with or endorsed by Activision.
+</footer>
+
+<script>
+function verifyPlayer() {
+  const id = document.getElementById("playerId").value.trim();
+  const result = document.getElementById("result");
+
+  if (!/^[a-zA-Z0-9_-]{3,30}$/.test(id)) {
+    result.textContent =
+      "Please enter a sample ID using 3–30 letters or numbers.";
+    return;
+  }
+
+  result.textContent =
+    "Demo successful! No account was verified and no real rewards were granted.";
+}
+</script>
+
+</body>
+  </html>
